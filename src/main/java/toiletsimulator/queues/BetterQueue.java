@@ -26,7 +26,7 @@ public class BetterQueue extends ToiletQueue {
 
         synchronized (queue) {
             if (queue.size()>0) {
-                throw new UnsupportedOperationException();
+                throw new UnsupportedOperationException();  // TODO !!!!! (morgen ;-) )
             } else {
                 return null;
             }
