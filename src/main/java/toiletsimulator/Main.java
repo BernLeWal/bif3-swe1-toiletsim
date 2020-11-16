@@ -10,9 +10,9 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        //SimpleQueue queue = new SimpleQueue();
-        BetterQueue queue = new BetterQueue();
-        // ConcurrentToiletQueue queue = new ConcurrentToiletQueue();
+        SimpleQueue queue = new SimpleQueue();
+        //BetterQueue queue = new BetterQueue();
+        //ConcurrentToiletQueue queue = new ConcurrentToiletQueue();
 
         int randomSeed = new Random().nextInt();
         Random random = new Random(randomSeed);
