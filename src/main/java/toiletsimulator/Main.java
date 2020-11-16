@@ -2,14 +2,16 @@ package toiletsimulator;
 
 import toiletsimulator.consumer.Toilet;
 import toiletsimulator.producer.PeopleGenerator;
+import toiletsimulator.queues.BetterQueue;
+import toiletsimulator.queues.ConcurrentToiletQueue;
 import toiletsimulator.queues.SimpleQueue;
 
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        SimpleQueue queue = new SimpleQueue();
-        // BetterQueue queue = new BetterQueue();
+        //SimpleQueue queue = new SimpleQueue();
+        BetterQueue queue = new BetterQueue();
         // ConcurrentToiletQueue queue = new ConcurrentToiletQueue();
 
         int randomSeed = new Random().nextInt();

@@ -3,6 +3,8 @@ package toiletsimulator.queues;
 import toiletsimulator.Parameters;
 import toiletsimulator.interfaces.JobInterface;
 
+import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.concurrent.Semaphore;
 
 public class BetterQueue extends ToiletQueue {
@@ -26,7 +28,18 @@ public class BetterQueue extends ToiletQueue {
 
         synchronized (queue) {
             if (queue.size()>0) {
-                throw new UnsupportedOperationException();  // TODO !!!!! (morgen ;-) )
+                queue.sort( new Comparator<JobInterface>() {
+                    @Override
+                    public int compare(JobInterface a, JobInterface b) {
+                        if( a==null || b==null )
+                            return 0;
+                        if( !a.getDueDate().equals(b.getDueDate()) )
+                            return a.getDueDate().compareTo(b.getDueDate());
+                        else
+                            return a.getProcessingTime().compareTo(b.getProcessingTime());
+                    }
+                });
+                return queue.remove(0);
             } else {
                 return null;
             }
