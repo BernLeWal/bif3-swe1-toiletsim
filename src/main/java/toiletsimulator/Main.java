@@ -1,18 +1,20 @@
 package toiletsimulator;
 
 import toiletsimulator.consumer.Toilet;
+import toiletsimulator.interfaces.ToiletQueueInterface;
 import toiletsimulator.producer.PeopleGenerator;
-import toiletsimulator.queues.BetterQueue;
-import toiletsimulator.queues.ConcurrentToiletQueue;
-import toiletsimulator.queues.SimpleQueue;
+import toiletsimulator.queues.SemaphoreQueue;
+import toiletsimulator.queues.SimpleLockQueue;
 
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        SimpleQueue queue = new SimpleQueue();
-        //BetterQueue queue = new BetterQueue();
-        //ConcurrentToiletQueue queue = new ConcurrentToiletQueue();
+        //ToiletQueueInterface queue = new NoLockingQueue();
+        ToiletQueueInterface queue = new SimpleLockQueue();
+        //ToiletQueueInterface queue = new SemaphoreQueue();
+        //ToiletQueueInterface queue = new BetterQueue();
+        //ToiletQueueInterface queue = new ConcurrentToiletQueue();
 
         int randomSeed = new Random().nextInt();
         Random random = new Random(randomSeed);

@@ -2,7 +2,7 @@ package toiletsimulator.queues;
 
 import toiletsimulator.interfaces.JobInterface;
 
-public class SimpleQueue extends ToiletQueue {
+public class SimpleLockQueue extends ToiletQueue {
 
     @Override
     public void enqueue(JobInterface job) {
